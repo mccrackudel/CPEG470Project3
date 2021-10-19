@@ -17,7 +17,7 @@ document.getElementById("test").addEventListener("click", tester);
 function tester(e){
     e.preventDefault();
     //alert(database);
-    getElementById("serverList").value = database;
+    getElementById("serverList").value = "database";
 
 }
 
