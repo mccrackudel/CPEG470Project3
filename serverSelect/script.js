@@ -14,14 +14,11 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-document.getElementById("serverList").innerHTML = "hello there!";
-
-
 document.getElementById("test").addEventListener("click", tester);
 function tester(e){
     e.preventDefault();
     //alert(database);
-    document.getElementById("serverList").innerHTML = "database";
+    document.getElementById("serverList").innerHTML = database;
 
 }
 
