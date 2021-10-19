@@ -1,4 +1,4 @@
-const username = "Andrew";
+const username = localStorage.getItem("nameVal");
 const server = localStorage.getItem("serverVal");
 document.getElementById("serverName").innerHTML = "Server: " + server;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
