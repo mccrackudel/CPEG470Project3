@@ -1,40 +1,40 @@
 body{
-    text-align: center;
-    background-color: salmon;
+  text-align: center;
+  background-color: rgb(72, 71, 175);
 }
 #serverName{
-    font-size: 45;
-    font-weight: bold;
+  font-size: 45;
+  font-weight: bold;
 }
 ul{
-  list-style:none;
-  max-height:200px;
-  margin:0;
-  overflow:auto;
-  padding:0;
-  text-indent:10px;
+list-style:none;
+max-height:200px;
+margin:0;
+overflow:auto;
+padding:0;
+text-indent:10px;
 }
 li{
-  line-height:25px;
+line-height:25px;
 }
 li:nth-child(even){
-  background:#b5b0b9;
-  size: 50%;
+background:#b5b0b9;
+size: 50%;
 }
 li:nth-child(odd){
-  background:#ccc;
-  size: 50%;
+background:#ccc;
+size: 50%;
 }
 input{
-    background-color: #b5b0b9;
-    margin-top: 10px;
-}
-textarea{
   background-color: #b5b0b9;
   margin-top: 10px;
 }
+textarea{
+background-color: #b5b0b9;
+margin-top: 10px;
+}
 button{
-  margin-top: 1%;
-  margin-bottom: 1%;
-  width: 15%;
+margin-top: 1%;
+margin-bottom: 1%;
+width: 15%;
 }
