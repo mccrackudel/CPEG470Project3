@@ -16,7 +16,8 @@ const database = firebase.database();
 document.getElementById("test").addEventListener("click", tester);
 function tester(e){
     e.preventDefault();
-    alert(database);
+    //alert(database);
+    getElementById("serverList").value = database;
 
 }
 
