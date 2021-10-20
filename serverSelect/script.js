@@ -14,15 +14,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-database.getInstance().getReference().child("root");
-
-document.getElementById("test").addEventListener("click", tester);
-function tester(e){
-    e.preventDefault();
-    //alert(database);
-    document.getElementById("serverList").innerHTML = database.getInstance().getReference().child("root");
-
-}
+const app = initializeApp(firebaseConfig);
+let db = fb.getDatabase(app)
+let titleRef =  fb.ref(db, "/");
+var serverList = [];
+fb.onValue(titleRef, ss=>{
+  for(var item in ss.val()){
+    serverList += item;
+  }
+  document.getElementById("serverList").innerHTML = serverList;
+});
 
 function nextpage(e){
     e.preventDefault();
@@ -30,16 +31,3 @@ function nextpage(e){
     window.location.href='../serverDisplay/index.html';
 }
 document.getElementById("submitButton").addEventListener("click", nextpage);
-/*
-const server = "./";
-const fetchChat = database.ref(server);
-
-  fetchChat.on("child_added", function (snapshot){
-    const messages = snapshot.val();
-    const message = `<li class=${
-      username === messages.username ? "sent" : "receive"
-    }><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
-  document.getElementById("chatBox").innerHTML += message;
-  });
-  */
