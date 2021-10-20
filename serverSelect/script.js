@@ -22,6 +22,7 @@ fb.onValue(titleRef, ss=>{
   for(var item in ss.val()){
     serverList += item + " ";
   }
+  serverList.splice(serverList.indexOf("users "), 1);
   document.getElementById("serverList").innerHTML = serverList;
 });
 //goto next page
