@@ -32,6 +32,9 @@ function nextpage(e){
     if(serverList.includes(document.getElementById("serverVal").value + " ") == false){
       alert("Not a valid Server!!!");
     }
+    else if(document.getElementById("serverVal").value == "users" || document.getElementById("serverVal").value == "" ){
+      alert("Access Denied.");
+    }
     else{
       localStorage.setItem("serverVal", document.getElementById("serverVal").value +"/");
       window.location.href='../serverDisplay/index.html';
