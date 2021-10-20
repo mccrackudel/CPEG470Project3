@@ -20,7 +20,7 @@ let titleRef =  fb.ref(db, "/");
 var serverList = [];
 fb.onValue(titleRef, ss=>{
   for(var item in ss.val()){
-    serverList += item;
+    serverList += item + " ";
   }
   document.getElementById("serverList").innerHTML = serverList;
 });
