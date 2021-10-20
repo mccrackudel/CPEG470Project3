@@ -18,7 +18,7 @@ document.getElementById("test").addEventListener("click", tester);
 function tester(e){
     e.preventDefault();
     //alert(database);
-    document.getElementById("serverList").innerHTML = database.ref("/messages");
+    document.getElementById("serverList").innerHTML = database.ref("messages/");
 
 }
 
@@ -28,3 +28,15 @@ function nextpage(e){
     window.location.href='../serverDisplay/index.html';
 }
 document.getElementById("submitButton").addEventListener("click", nextpage);
+/*
+const fetchChat = database.ref(server);
+
+  fetchChat.on("child_added", function (snapshot){
+    const messages = snapshot.val();
+    const message = `<li class=${
+      username === messages.username ? "sent" : "receive"
+    }><span>${messages.username}: </span>${messages.message}</li>`;
+  // append the message on the page
+  document.getElementById("chatBox").innerHTML += message;
+  });
+  */
