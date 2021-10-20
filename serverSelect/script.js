@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
 import * as fb from  "https://www.gstatic.com/firebasejs/9.0.1/firebase-database.js";
-
+//firebase init
 const firebaseConfig = {
   apiKey: "AIzaSyAJFmJSQEeZXx0qequ9i6_3JEgs66wsDX0",
   authDomain: "chatroom-fed7d.firebaseapp.com",
@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-
+//dynamic server listings
 const app = initializeApp(firebaseConfig);
 let db = fb.getDatabase(app)
 let titleRef =  fb.ref(db, "/");
@@ -24,10 +24,15 @@ fb.onValue(titleRef, ss=>{
   }
   document.getElementById("serverList").innerHTML = serverList;
 });
-
+//goto next page
 function nextpage(e){
     e.preventDefault();
-    localStorage.setItem("serverVal", document.getElementById("serverVal").value +"/");
-    window.location.href='../serverDisplay/index.html';
+    if(serverList.includes(document.getElementById("serverVal").value + " ") == false){
+      alert("Not a valid Server!!!");
+    }
+    else{
+      localStorage.setItem("serverVal", document.getElementById("serverVal").value +"/");
+      window.location.href='../serverDisplay/index.html';
+    }
 }
 document.getElementById("submitButton").addEventListener("click", nextpage);
