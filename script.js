@@ -1,4 +1,4 @@
-/*
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
 import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
@@ -85,7 +85,7 @@ let renderUser = function(userObj){
         console.log(errorMessage);
       });
   });
-*/
+
 //auth end
 function nextpage(e){
     e.preventDefault();
