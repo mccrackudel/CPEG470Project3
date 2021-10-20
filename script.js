@@ -1,4 +1,4 @@
-
+const authVal = false;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
 import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
@@ -17,7 +17,6 @@ let db = rtdb.getDatabase(app);
 let auth = fbauth.getAuth(app);
 
 let renderUser = function(userObj){
-    $("#app").html(JSON.stringify(userObj));
     $("#app").append(`<button type="button" id="logout">Logout</button>`);
     $("#logout").on("click", ()=>{
       fbauth.signOut(auth);
@@ -26,6 +25,7 @@ let renderUser = function(userObj){
   
   fbauth.onAuthStateChanged(auth, user => {
         if (!!user){
+            authVal = true;
           $("#login").hide();
           $("#app").show();
           renderUser(user);
@@ -35,18 +35,11 @@ let renderUser = function(userObj){
     alert(ss.val());
   })
         } else {
+            authVal = false;
           $("#login").show();
           $("#app").html("");
         }
   });
-
-  let rulesRef = rtdb.ref(db, "/rules");
-  rtdb.onValue(rulesRef, ss=>{
-    let rules = ss.val();
-    if (!!rules){
-      $("#rules").html(rules);
-    }
-  })
   
   
   $("#register").on("click", ()=>{
@@ -89,7 +82,13 @@ let renderUser = function(userObj){
 //auth end
 function nextpage(e){
     e.preventDefault();
-    localStorage.setItem("nameVal", document.getElementById("nameVal").value);
-    window.location.href='serverSelect/index.html';
+    if(authVal == true){
+        localStorage.setItem("authVal", authVal)
+        localStorage.setItem("nameVal", document.getElementById("nameVal").value);
+        window.location.href='serverSelect/index.html';
+    }
+    else{
+        alert("Please Login.");
+    }
 }
 document.getElementById("submitButton").addEventListener("click", nextpage);
