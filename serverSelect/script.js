@@ -20,9 +20,10 @@ let titleRef =  fb.ref(db, "/");
 var serverList = [];
 fb.onValue(titleRef, ss=>{
   for(var item in ss.val()){
-    serverList += item + " ";
+    if(item != "users"){
+      serverList += item + " ";
+    }
   }
-  serverList.splice(serverList.indexOf("users "), 1);
   document.getElementById("serverList").innerHTML = serverList;
 });
 //goto next page
