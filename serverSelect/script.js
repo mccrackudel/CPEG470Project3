@@ -14,11 +14,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
+database.getInstance().getReference().child("root");
+
 document.getElementById("test").addEventListener("click", tester);
 function tester(e){
     e.preventDefault();
     //alert(database);
-    document.getElementById("serverList").innerHTML = database.ref("messages/");
+    document.getElementById("serverList").innerHTML = database.getInstance().getReference().child("root");
 
 }
 
@@ -29,6 +31,7 @@ function nextpage(e){
 }
 document.getElementById("submitButton").addEventListener("click", nextpage);
 /*
+const server = "./";
 const fetchChat = database.ref(server);
 
   fetchChat.on("child_added", function (snapshot){
