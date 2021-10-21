@@ -1,4 +1,5 @@
 var authVal = false;
+localStorage.setItem("authVal", authVal);
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
 import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
@@ -83,7 +84,7 @@ let renderUser = function(userObj){
 function nextpage(e){
     e.preventDefault();
     if(authVal == true){
-        localStorage.setItem("authVal", authVal)
+        localStorage.setItem("authVal", authVal);
         localStorage.setItem("nameVal", document.getElementById("nameVal").value);
         window.location.href='serverSelect/index.html';
     }

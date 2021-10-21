@@ -1,3 +1,8 @@
+if(localStorage.getItem("authVal") == false){
+  document.body.innerHTML = "";
+  alert("You do not have access go back.");
+}
+
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
 import * as fb from  "https://www.gstatic.com/firebasejs/9.0.1/firebase-database.js";

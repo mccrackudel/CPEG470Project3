@@ -1,3 +1,8 @@
+if(localStorage.getItem("authVal") == false){
+  document.body.innerHTML = "";
+  alert("You do not have access go back.");
+}
+
 const username = localStorage.getItem("nameVal");
 const server = localStorage.getItem("serverVal");
 document.getElementById("serverName").innerHTML = "Server: " + server;
